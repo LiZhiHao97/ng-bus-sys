@@ -1,5 +1,5 @@
-.register-wrapper {
-  width: 400px;
+.login-wrapper {
+  width: 300px;
   padding: 20 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, .3);
   position: absolute;
@@ -8,7 +8,7 @@
   margin: 0 auto;
   top: 100px;
 
-  .register-header {
+  .login-header {
     height: 50px;
     line-height: 50px;
     background: #3f90f7;
@@ -17,10 +17,10 @@
     padding-left: 30px;
   }
 
-  .register-content {
-    padding: 30px 30px;
-    
-    .login-link {
+  .login-content {
+    padding: 30px 30px 20px 30px;
+
+    .register-link {
       display: block;
       margin: 14px 0;
     }

@@ -1,3 +1,29 @@
-<p>
-  register works!
-</p>
+<div class="register-wrapper">
+  <div class="register-header">
+    <span>注册</span>
+  </div>
+  <div class="register-content">
+    <nz-input-group [nzPrefix]="userIconTemplate">
+      <input type="text" nz-input placeholder="请输入用户名" [(ngModel)]="username" />
+    </nz-input-group>
+    <nz-input-group [nzPrefix]="pwdIconTemplate" [ngStyle]="inputStyle">
+      <input type="password" nz-input placeholder="请输入密码" [(ngModel)]="password" />
+    </nz-input-group>
+    <nz-input-group [nzPrefix]="pwdIconTemplate" [ngStyle]="inputStyle">
+      <input type="password" nz-input placeholder="请确认密码" [(ngModel)]="checkPassword" />
+    </nz-input-group>
+    <nz-input-group [nzPrefix]="emailIconTemplate" [ngStyle]="inputStyle">
+      <input type="text" nz-input placeholder="请输入邮箱" [(ngModel)]="mail" />
+    </nz-input-group>
+    <nz-input-group [nzPrefix]="telIconTemplate" [ngStyle]="inputStyle">
+      <input type="text" nz-input placeholder="请输入电话号码" [(ngModel)]="telphone" />
+    </nz-input-group>
+    <a routerLink="/login/user" class="login-link">已有账号？前往登录</a>
+    <button nz-button nzType="primary" nzBlock (click)="register()">注册</button>
+    <br />
+  </div>
+</div>
+<ng-template #userIconTemplate><i nz-icon type="user"></i></ng-template>
+<ng-template #pwdIconTemplate><i nz-icon type="eye"></i></ng-template>
+<ng-template #emailIconTemplate><i nz-icon type="mail"></i></ng-template>
+<ng-template #telIconTemplate><i nz-icon nzType="phone"></i></ng-template>

@@ -1,0 +1,17 @@
+<div class="login-wrapper">
+  <div class="login-header">
+    <span>管理员登录</span>
+  </div>
+  <div class="login-content">
+    <nz-input-group [nzPrefix]="userIconTemplate">
+      <input type="text" nz-input placeholder="请输入用户名" [(ngModel)]="username" />
+    </nz-input-group>
+    <nz-input-group [nzPrefix]="pwdIconTemplate" [ngStyle]="inputStyle">
+      <input type="password" nz-input placeholder="请输入密码" [(ngModel)]="password" />
+    </nz-input-group>
+    <button nz-button nzType="primary" nzBlock (click)="adminLogin()" [ngStyle]="inputStyle">登录</button>
+    <br />
+  </div>
+</div>
+<ng-template #userIconTemplate><i nz-icon type="user"></i></ng-template>
+<ng-template #pwdIconTemplate><i nz-icon type="eye"></i></ng-template>
