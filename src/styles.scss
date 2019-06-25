@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+.ant-drawer-body {
+  padding: 12px;
+}
+
+.ant-menu-inline, .ant-menu-vertical, .ant-menu-vertical-left {
+  border-right: none;
+}

@@ -1,0 +1,34 @@
+<div class="bus-list-wrapper">
+  <nz-collapse>
+      <nz-collapse-panel
+        *ngFor="let panel of panels"
+        [nzHeader]="panel.name"
+        [nzActive]="panel.active"
+        [nzDisabled]="panel.disabled"
+      >
+        <p style="margin:0;">
+          <nz-timeline>
+              <nz-timeline-item nzColor="green">
+                莲塘（7:55）
+              </nz-timeline-item>
+              <nz-timeline-item nzColor="green">
+                国际烟酒城（7:56）
+
+              </nz-timeline-item>
+              <nz-timeline-item>
+                广岭家园路口（7:57）
+              </nz-timeline-item>
+              <nz-timeline-item>
+                泥岗村（8:12）
+              </nz-timeline-item>
+              <nz-timeline-item>
+                飞亚达（8:40）
+              </nz-timeline-item>
+              <nz-timeline-item>
+                腾讯大厦/华强（8:50）
+              </nz-timeline-item>
+            </nz-timeline>
+        </p>
+      </nz-collapse-panel>
+    </nz-collapse>
+</div>

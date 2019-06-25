@@ -1,0 +1,17 @@
+<div class="search-wrapper">
+    <div class="search-header">
+      班车查询
+    </div>
+    <div>
+      <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton" nzSize="large">
+        <input type="text" nz-input placeholder="请搜索始发站名称" />
+      </nz-input-group>
+    </div>
+    <div style="margin-top: 20px;">
+      <nz-cascader nzPlaceHolder="请选择发车时间段" nzSize="large" [nzOptions]="nzOptions" [(ngModel)]="values" (ngModelChange)="onChanges($event)" style="width: 100%" > </nz-cascader>
+    </div>
+</div>
+
+<ng-template #suffixIconButton>
+  <button nz-button nzType="primary" nzSize="large" nzSearch><i nz-icon type="search"></i></button>
+</ng-template>

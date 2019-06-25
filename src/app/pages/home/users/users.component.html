@@ -1,0 +1,25 @@
+<div class="users-wrapper">
+  <div class="users-header">
+    用户列表
+  </div>
+  <nz-table #basicTable [nzData]="listOfData">
+    <thead>
+      <tr>
+        <th>用户名</th>
+        <th>邮箱</th>
+        <th>联系方式</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td>{{ data.username }}</td>
+        <td>{{ data.mail }}</td>
+        <td>{{ data.telphone }}</td>
+        <td>
+          <a>删除</a>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>

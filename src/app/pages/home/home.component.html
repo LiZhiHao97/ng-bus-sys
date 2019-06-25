@@ -1,3 +1,30 @@
-<p>
-  home works!
-</p>
+<div class="home-wrapper">
+  <div style="padding: 10px">
+    <button nz-button nzType="primary" (click)="open()"><i nz-icon nzType="menu" nzTheme="outline"></i></button>
+  </div>
+  <router-outlet></router-outlet>
+  <nz-drawer
+      [nzClosable]="false"
+      [nzVisible]="visible"
+      nzPlacement="left"
+      [nzTitle]="DrawerHeader"
+      (nzOnClose)="close()"
+    >
+    <ul nz-menu [nzMode]="'inline'" style="width: 240px;">
+        <li nz-menu-item (click)="menuClick(0)">
+          <span title><i nz-icon type="mail"></i>查询班车</span>
+        </li>
+        <li nz-menu-item (click)="menuClick(1)">
+          <span title><i nz-icon type="idcard"></i>用户列表</span>
+        </li>
+        <li nz-menu-item (click)="menuClick(2)">
+          <span title><i nz-icon type="car"></i>班车信息</span>
+        </li>
+      </ul>
+    </nz-drawer>
+</div>
+
+<ng-template #DrawerHeader>
+    <nz-avatar nzIcon="user" [nzSrc]="avatarUrl"></nz-avatar>
+    <span style="position: relative; left: 10px; top: 4px;">该用户已成仙</span>
+</ng-template>
