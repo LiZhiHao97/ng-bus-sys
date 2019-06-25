@@ -3684,6 +3684,12 @@ ng-zorro-antd@^7.5.1:
     date-fns "^1.29.0"
     tslib "^1.9.0"
 
+ngx-cookie@^4.1.2:
+  version "4.1.2"
+  resolved "https://registry.npm.taobao.org/ngx-cookie/download/ngx-cookie-4.1.2.tgz#ab2fafc6ee7f23b7ad92f8427dc714894e60aa31"
+  dependencies:
+    tslib "^1.9.0"
+
 nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.npm.taobao.org/nice-try/download/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"

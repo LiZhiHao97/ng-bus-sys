@@ -14,7 +14,7 @@ export class AdminLoginComponent implements OnInit {
 
   username: string;
   password: string;
-  role: 'ADMIN';
+  role = 'ADMIN';
 
   constructor(
     private loginService: LoginService

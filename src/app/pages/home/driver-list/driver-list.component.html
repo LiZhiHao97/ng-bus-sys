@@ -1,0 +1,27 @@
+<div class="drivers-wrapper">
+    <div class="drivers-header">
+      司机列表
+    </div>
+    <nz-table #basicTable [nzData]="listOfData">
+      <thead>
+        <tr>
+          <th>司机名</th>
+          <th>路线名</th>
+          <th>车牌号</th>
+          <th>联系方式</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of basicTable.data">
+          <td>{{ data.name }}</td>
+          <td>{{ data.lineNum }}</td>
+          <td>{{ data.license }}</td>
+          <td>{{ data.telephone }}</td>
+          <td>
+            <a>删除</a>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>

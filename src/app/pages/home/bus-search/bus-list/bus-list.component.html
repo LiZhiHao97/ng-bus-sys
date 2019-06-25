@@ -1,34 +1,23 @@
 <div class="bus-list-wrapper">
-  <nz-collapse>
+  <nz-collapse *ngIf="results.length">
       <nz-collapse-panel
-        *ngFor="let panel of panels"
-        [nzHeader]="panel.name"
-        [nzActive]="panel.active"
-        [nzDisabled]="panel.disabled"
+        *ngFor="let item of results"
+        [nzHeader]="item.lineNum"
+        nzActive="false"
+        nzDisabled="false"
       >
         <p style="margin:0;">
           <nz-timeline>
-              <nz-timeline-item nzColor="green">
-                莲塘（7:55）
-              </nz-timeline-item>
-              <nz-timeline-item nzColor="green">
-                国际烟酒城（7:56）
-
-              </nz-timeline-item>
-              <nz-timeline-item>
-                广岭家园路口（7:57）
-              </nz-timeline-item>
-              <nz-timeline-item>
-                泥岗村（8:12）
-              </nz-timeline-item>
-              <nz-timeline-item>
-                飞亚达（8:40）
-              </nz-timeline-item>
-              <nz-timeline-item>
-                腾讯大厦/华强（8:50）
-              </nz-timeline-item>
-            </nz-timeline>
+            <nz-timeline-item *ngFor="let station of item.list" nzColor="{{station.position <= item.requirePosition ? 'green' : 'red'}}">
+              {{station.name}} ({{station.time.substring(0, 5)}})
+            </nz-timeline-item>
+          </nz-timeline>
         </p>
+        <button nz-button [nzType]="'primary'" (click)="showModal(item.list[item.requirePosition - 1].name)"><span>打开地图</span></button>
       </nz-collapse-panel>
     </nz-collapse>
 </div>
+<nz-modal [(nzVisible)]="isVisible" nzTitle="位置" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+  <div id = "map" style="width: 100%; height: 400px;">
+  </div>
+</nz-modal>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { SearchComponent } from './search/search.component';
 
 @Component({
   selector: 'app-bus-search',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BusSearchComponent implements OnInit {
 
+  results = [];
+
   constructor() { }
 
   ngOnInit() {
+
+  }
+
+  fetchResults(results) {
+    this.results = [...results];
+    console.log(results);
   }
 
 }

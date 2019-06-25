@@ -1,6 +1,6 @@
 export const options = [
   {
-    value: '6:00-24:00',
+    value: '6:00-23:59',
     label: '不限(6:00-24:00)',
     isLeaf: true
   },
@@ -107,7 +107,7 @@ export const options = [
       },
       {
         value: '23:00-24:00',
-        label: '23:00-24:00',
+        label: '23:00-23:59',
         isLeaf: true
       },
     ]

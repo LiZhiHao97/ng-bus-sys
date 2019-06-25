@@ -4,7 +4,7 @@
     </div>
     <div>
       <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton" nzSize="large">
-        <input type="text" nz-input placeholder="请搜索始发站名称" />
+        <input type="text" nz-input placeholder="请搜索始发站名称" [(ngModel)]="placeName" />
       </nz-input-group>
     </div>
     <div style="margin-top: 20px;">
@@ -13,5 +13,5 @@
 </div>
 
 <ng-template #suffixIconButton>
-  <button nz-button nzType="primary" nzSize="large" nzSearch><i nz-icon type="search"></i></button>
+  <button nz-button nzType="primary" nzSize="large" nzSearch (click)="search()"><i nz-icon type="search"></i></button>
 </ng-template>

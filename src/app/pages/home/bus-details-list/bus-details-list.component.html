@@ -6,18 +6,16 @@
       <button nz-button nzType="default" (click)="showModal()">新建班次</button>
   </div>
   <div class="bus-details-list" style="margin-top: 20px">
-    <nz-card style="width: 100%;" nzTitle="S-1" [nzExtra]="extraTemplate">
-      <nz-card-tab>
+    <nz-card *ngFor="let item of busData" style="width: 100%; margin-bottom: 20px" nzTitle="{{item.lineNum}}" [nzExtra]="extraTemplate" (click)="changeObject(item)">
         <nz-tabset nzSize="large" nzSelectedIndex="0">
-          <nz-tab nzTitle="莲塘"></nz-tab>
-          <nz-tab nzTitle="国际烟酒城"></nz-tab>
+          <nz-tab *ngFor="let station of item.list" nzTitle="{{station.name}}">
+              <div nz-row style="padding-bottom: 10px;">
+                <div nz-col nzSpan="8">站号: {{station.position}}</div>
+                <div nz-col nzSpan="8">预计到站时间: {{station.time.substring(0, 5)}}</div>
+                <div nz-col nzSpan="8"></div>
+              </div>
+          </nz-tab>
         </nz-tabset>
-      </nz-card-tab>
-      <div nz-row style="margin-top: 10px;">
-        <div nz-col nzSpan="8">站号: 1</div>
-        <div nz-col nzSpan="8">预计到站时间: 7:55</div>
-        <div nz-col nzSpan="8"></div>
-      </div>
     </nz-card>
   </div>
 </div>
@@ -29,10 +27,10 @@
 </nz-modal>
 
 <nz-modal [(nzVisible)]="isVisible2" nzTitle="新建站点" (nzOnCancel)="handleCancel2()" (nzOnOk)="handleOk2()">
-    <input nz-input placeholder="请输入站点名" [(ngModel)]="lineNum" style="margin-top: 10px;" />
-    <input nz-input placeholder="请输入预计到达世界(请按以下格式输入,如: 18:00)" [(ngModel)]="time" style="margin-top: 10px;" />
+    <input nz-input placeholder="请输入站点名" [(ngModel)]="placeName" style="margin-top: 10px;" />
+    <input nz-input placeholder="请输入预计到达时间(请按以下格式输入,如: 18:00)" [(ngModel)]="time" style="margin-top: 10px;" />
 </nz-modal>
 
 <ng-template #extraTemplate>
-    <a (click)="showModal2()">添加新站点</a>
-  </ng-template>
+  <a (click)="showModal2()">添加新站点</a>
+</ng-template>

@@ -8,6 +8,8 @@ import { BusListComponent } from './bus-search/bus-list/bus-list.component';
 import { BusSearchComponent } from './bus-search/bus-search.component';
 import { UsersComponent } from './users/users.component';
 import { BusDetailsListComponent } from './bus-details-list/bus-details-list.component';
+import { DriverListComponent } from './driver-list/driver-list.component';
+import { CommentComponent } from './comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { BusDetailsListComponent } from './bus-details-list/bus-details-list.com
     BusSearchComponent,
     UsersComponent,
     BusDetailsListComponent,
+    DriverListComponent,
+    CommentComponent,
   ],
   imports: [
     RouterModule.forChild(homeRoutes),

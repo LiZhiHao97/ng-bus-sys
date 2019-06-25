@@ -10,21 +10,29 @@
       [nzTitle]="DrawerHeader"
       (nzOnClose)="close()"
     >
-    <ul nz-menu [nzMode]="'inline'" style="width: 240px;">
+    <ul nz-menu [nzMode]="'inline'" style="width: 240px;" *ngIf="userInfo">
         <li nz-menu-item (click)="menuClick(0)">
           <span title><i nz-icon type="mail"></i>查询班车</span>
         </li>
-        <li nz-menu-item (click)="menuClick(1)">
+        <li nz-menu-item (click)="menuClick(1)" *ngIf="userInfo.role == 'ADMIN'">
           <span title><i nz-icon type="idcard"></i>用户列表</span>
         </li>
-        <li nz-menu-item (click)="menuClick(2)">
+        <li nz-menu-item (click)="menuClick(2)" *ngIf="userInfo.role == 'ADMIN'">
           <span title><i nz-icon type="car"></i>班车信息</span>
+        </li>
+        <li nz-menu-item (click)="menuClick(3)">
+          <span title><i nz-icon type="team"></i>司机信息</span>
+        </li>
+        <li nz-menu-item (click)="menuClick(4)">
+          <span title><i nz-icon type="edit"></i>意见中心</span>
         </li>
       </ul>
     </nz-drawer>
 </div>
 
 <ng-template #DrawerHeader>
-    <nz-avatar nzIcon="user" [nzSrc]="avatarUrl"></nz-avatar>
-    <span style="position: relative; left: 10px; top: 4px;">该用户已成仙</span>
+  <div *ngIf="userInfo">
+    <nz-avatar nzIcon="user" nzSrc="../../assets/imgs/{{userInfo.headId}}.png"></nz-avatar>
+    <span style="position: relative; left: 10px; top: 4px;">{{userInfo.username}}</span>
+  </div>
 </ng-template>

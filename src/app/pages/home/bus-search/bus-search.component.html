@@ -1,2 +1,2 @@
-<app-search></app-search>
-<app-bus-list></app-bus-list>
+<app-search (emitResults)="fetchResults($event)"></app-search>
+<app-bus-list [results]="results"></app-bus-list>

@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
   password: string;
   checkPassword: string;
   mail: string;
-  telphone: string;
+  telephone: string;
 
   constructor(
     private registerService: RegisterService
@@ -26,8 +26,8 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    const { username, password, checkPassword, mail, telphone } = this;
-    this.registerService.register({ username, password, mail, telphone }, checkPassword);
+    const { username, password, checkPassword, mail, telephone } = this;
+    this.registerService.register({ username, password, mail, telephone }, checkPassword);
   }
 
 }

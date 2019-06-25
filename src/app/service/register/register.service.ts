@@ -3,12 +3,17 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NzNotificationService } from 'ng-zorro-antd';
 import { Router } from '@angular/router';
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
 @Injectable({
   providedIn: 'root'
 })
 export class RegisterService {
 
   constructor(
+    private http: HttpClient,
     private notification: NzNotificationService,
     private router: Router
   ) { }
@@ -32,19 +37,21 @@ export class RegisterService {
       this.createNotification('warning', '邮箱格式不正确', '请重新输入');
       return;
     }
-    if (!telReg.test(data.telphone)) {
+    if (!telReg.test(data.telephone)) {
       this.createNotification('warning', '电话号码格式不正确', '请重新输入');
       return;
     }
 
-    // this.http.post('/api/user/register', data, httpOptions).subscribe(res => {
-    //   if (res['code'] === 1) {
-    //     this.createNotification('success', res['msg'], '您现在可以登录了' );
-    //     this.router.navigate(['/login']);
-    //   } else {
-    //     this.createNotification('warning', res['msg'], '请重新输入' );
-    //   }
-    // });
+    this.http.post('/api/user/register', data, httpOptions).subscribe(res => {
+      const code = 'code';
+      const msg = 'msg';
+      if (res[code] === 1) {
+        this.createNotification('success', res[msg], '您现在可以登录了' );
+        this.router.navigate(['/login']);
+      } else {
+        this.createNotification('warning', res[msg], '请重新输入' );
+      }
+    });
   }
 
   createNotification(type: string, msg: string, text: string): void {

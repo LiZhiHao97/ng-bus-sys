@@ -14,7 +14,7 @@ export class UserLoginComponent implements OnInit {
 
   username: string;
   password: string;
-  role: 'USER';
+  role = 'USER';
 
   constructor(
     private loginService: LoginService
