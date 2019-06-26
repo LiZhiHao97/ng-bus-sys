@@ -27,6 +27,14 @@ export class BusService {
     return this.http.post('/api/admin/bus/addStop', data, httpOptions);
   }
 
+  update(data) {
+    return this.http.post('/api/admin/bus/update', data, httpOptions);
+  }
+
+  deleteStation(stationId) {
+    return this.http.get(`/api/admin/bus/delete/${stationId}`);
+  }
+
   createNotification(type: string, msg: string, text: string): void {
     this.notification.create(type, msg, text);
   }

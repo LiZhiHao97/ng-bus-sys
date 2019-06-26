@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../../service/user/user.service';
+import { NzNotificationService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-home',
@@ -14,19 +15,25 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private notification: NzNotificationService
   ) { }
 
   ngOnInit() {
-    const userId = document.cookie.split('=')[1];
-    this.userService.findOne(userId).subscribe(res => {
-      const code = 'code';
-      const user = 'data';
-      if (res[code] === 1) {
-        this.userInfo = {...res[user]};
-        console.log(this.userInfo);
-      }
-    });
+    if (!document.cookie) {
+      this.router.navigate(['/login']);
+      this.createNotification('warning', '你没有权限进入该页面', '请先登录');
+    } else {
+      const userId = document.cookie.split('=')[1];
+      this.userService.findOne(userId).subscribe(res => {
+        const code = 'code';
+        const user = 'data';
+        if (res[code] === 1) {
+          this.userInfo = {...res[user]};
+          console.log(this.userInfo);
+        }
+      });
+    }
   }
 
   open(): void {
@@ -39,5 +46,9 @@ export class HomeComponent implements OnInit {
 
   menuClick(index): void {
     this.router.navigate([this.routers[index]]);
+  }
+
+  createNotification(type: string, msg: string, text: string): void {
+    this.notification.create(type, msg, text);
   }
 }

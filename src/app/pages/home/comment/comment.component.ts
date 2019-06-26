@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { addDays, distanceInWords } from 'date-fns';
 import { UserService } from '../../../service/user/user.service';
 import { CommentService } from '../../../service/comment/comment.service';
-import { userInfo } from 'os';
 
 @Component({
   selector: 'app-comment',

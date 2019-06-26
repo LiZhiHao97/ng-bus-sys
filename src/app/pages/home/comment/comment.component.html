@@ -1,5 +1,5 @@
 <div class="comment-wrapper">
-  <div class="comment-header">
+  <div class="comment-header" style="overflow: auto;">
     <nz-list [nzDataSource]="data" [nzRenderItem]="item" [nzItemLayout]="'horizontal'">
         <ng-template #item let-item>
           <nz-comment [nzAuthor]="item.author" [nzDatetime]="item.displayTime">

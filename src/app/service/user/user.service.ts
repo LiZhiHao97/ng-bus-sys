@@ -21,4 +21,12 @@ export class UserService {
   findAllDrivers() {
     return this.http.get('/api/admin/drivers');
   }
+
+  deleteOne(userId) {
+    return this.http.get(`/api/admin/delete/${userId}`);
+  }
+
+  deleteDriver(driverId) {
+    return this.http.get(`/api/admin/drivers/delete/${driverId}`);
+  }
 }

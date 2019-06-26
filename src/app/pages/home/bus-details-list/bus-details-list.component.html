@@ -9,9 +9,20 @@
     <nz-card *ngFor="let item of busData" style="width: 100%; margin-bottom: 20px" nzTitle="{{item.lineNum}}" [nzExtra]="extraTemplate" (click)="changeObject(item)">
         <nz-tabset nzSize="large" nzSelectedIndex="0">
           <nz-tab *ngFor="let station of item.list" nzTitle="{{station.name}}">
-              <div nz-row style="padding-bottom: 10px;">
+              <div nz-row style="padding: 10px 0;">
                 <div nz-col nzSpan="8">站号: {{station.position}}</div>
                 <div nz-col nzSpan="8">预计到站时间: {{station.time.substring(0, 5)}}</div>
+                <div nz-col nzSpan="2"></div>
+                <div nz-col nzSpan="2"><button nz-button nzType="default" nzShape="circle" nzSize="small" (click)="showModal3(item, station)"><i nz-icon type="edit"></i></button></div>
+                <div nz-col nzSpan="4"><button nz-button nzType="danger" nzShape="circle" nzSize="small" (click)="delete(station)"><i nz-icon type="delete"></i></button></div>
+              </div>
+              <div nz-row style="padding: 10px 0;">
+                <div nz-col nzSpan="2">
+                  <button nz-button nzType="primary" nzShape="circle" nzSize="small" (click)="move('left', item, station)"><i nz-icon type="left"></i></button>
+                </div>
+                <div nz-col nzSpan="2">
+                  <button nz-button nzType="primary" nzShape="circle" nzSize="small" (click)="move('right', item, station)"><i nz-icon type="right"></i></button>
+                </div>
                 <div nz-col nzSpan="8"></div>
               </div>
           </nz-tab>
@@ -27,6 +38,11 @@
 </nz-modal>
 
 <nz-modal [(nzVisible)]="isVisible2" nzTitle="新建站点" (nzOnCancel)="handleCancel2()" (nzOnOk)="handleOk2()">
+    <input nz-input placeholder="请输入站点名" [(ngModel)]="placeName" style="margin-top: 10px;" />
+    <input nz-input placeholder="请输入预计到达时间(请按以下格式输入,如: 18:00)" [(ngModel)]="time" style="margin-top: 10px;" />
+</nz-modal>
+
+<nz-modal [(nzVisible)]="isVisible3" nzTitle="修改站点" (nzOnCancel)="handleCancel3()" (nzOnOk)="handleOk3()">
     <input nz-input placeholder="请输入站点名" [(ngModel)]="placeName" style="margin-top: 10px;" />
     <input nz-input placeholder="请输入预计到达时间(请按以下格式输入,如: 18:00)" [(ngModel)]="time" style="margin-top: 10px;" />
 </nz-modal>
