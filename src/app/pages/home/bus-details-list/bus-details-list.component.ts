@@ -165,10 +165,12 @@ export class BusDetailsListComponent implements OnInit {
         this.createNotification('warning', '操作失败', '请重新操作' );
       }
     });
+    [this.lineNum, this.placeName, this.time] = '';
   }
 
   handleCancel3(): void {
     this.isVisible3 = false;
+    [this.lineNum, this.placeName, this.time] = '';
   }
 
   move(direction, bus, station) {
