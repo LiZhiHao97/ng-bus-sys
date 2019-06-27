@@ -145,7 +145,13 @@ export class BusDetailsListComponent implements OnInit {
       return this.createNotification('warning', '时间格式不正确', '请重新输入' );
     }
     this.busService
-    .update({id: focusStation.id, lineNum: focusObject.lineNum, placeName, position: focusStation.position, time: `${time}:00`})
+    .update({
+      id: focusStation.id,
+      lineNum: focusObject.lineNum,
+      placeName, position: focusStation.position,
+      time: `${time}:00`,
+      update: 'update'
+    })
     .subscribe(res => {
       const code = 'code';
       if (res[code] === 1) {
