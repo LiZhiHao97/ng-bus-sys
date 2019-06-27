@@ -191,7 +191,8 @@ export class BusDetailsListComponent implements OnInit {
       placeName: focusStation.name,
       position: focusStation.position + step,
       time: focusStation.time,
-      type: direction
+      type: direction,
+      operate: 'zhanwei'
     }).subscribe(res => {
       const code = 'code';
       if (res[code] === 1) {
