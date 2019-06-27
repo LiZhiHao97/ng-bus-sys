@@ -27,7 +27,7 @@ export class CommentComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    const userId = document.cookie.split('=')[1];
+    const userId = this.getId(document.cookie);
     this.userService.findOne(userId).subscribe(res => {
       const code = 'code';
       const user = 'data';
@@ -87,6 +87,14 @@ export class CommentComponent implements OnInit {
         }, 500);
       }
     });
+  }
+
+  getId(cookies) {
+    const index = cookies.indexOf('ID');
+    if (index === -1) {
+      return index;
+    }
+    return cookies[index + 3];
   }
 
 }
