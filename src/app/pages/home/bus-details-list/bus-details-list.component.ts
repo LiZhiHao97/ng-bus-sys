@@ -150,7 +150,7 @@ export class BusDetailsListComponent implements OnInit {
       lineNum: focusObject.lineNum,
       placeName, position: focusStation.position,
       time: `${time}:00`,
-      type: 'update'
+      operate: 'update'
     })
     .subscribe(res => {
       const code = 'code';
