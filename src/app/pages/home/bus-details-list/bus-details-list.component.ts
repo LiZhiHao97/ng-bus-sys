@@ -155,7 +155,7 @@ export class BusDetailsListComponent implements OnInit {
     .subscribe(res => {
       const code = 'code';
       if (res[code] === 1) {
-        this.createNotification('success', '更新成功', '班次已更新' );
+        this.createNotification('success', '更新成功', '站点已更新' );
         this.busService.fetchAllBus().subscribe(res2 => {
           const data = 'data';
           const busData = res2[data];
