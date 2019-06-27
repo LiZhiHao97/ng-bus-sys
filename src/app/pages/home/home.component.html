@@ -20,7 +20,7 @@
         <li nz-menu-item (click)="menuClick(2)" *ngIf="userInfo.role == 'ADMIN'">
           <span title><i nz-icon type="car"></i>班车信息</span>
         </li>
-        <li nz-menu-item (click)="menuClick(3)">
+        <li nz-menu-item (click)="menuClick(3)" *ngIf="userInfo.role == 'ADMIN'">
           <span title><i nz-icon type="team"></i>司机信息</span>
         </li>
         <li nz-menu-item (click)="menuClick(4)">

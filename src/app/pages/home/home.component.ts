@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if (this.getId(document.cookie) === -1) {
+    if (this.getId(document.cookie) === '') {
       this.router.navigate(['/login']);
       this.createNotification('warning', '你没有权限进入该页面', '请先登录');
     } else {
@@ -49,11 +49,14 @@ export class HomeComponent implements OnInit {
   }
 
   getId(cookies) {
-    const index = cookies.indexOf('ID');
-    if (index === -1) {
-      return index;
+    const arrcookie = cookies.split(';');
+    for (const item of arrcookie) {
+      const arr = item.split('=');
+      if (arr[0].replace(/(^\s*)|(\s*$)/g, '') === 'ID') {
+        return arr[1];
+      }
     }
-    return cookies[index + 3];
+    return '';
   }
 
   createNotification(type: string, msg: string, text: string): void {
